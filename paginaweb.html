@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Configuración básica del documento -->
+    <link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Dinámica</title>
+    <!-- Importación de Bootstrap para diseño responsivo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* ===== Estilos del Header ===== */
+        .header-container {
+            position: relative;
+            background-color: #000;
+            color: #801a1a;
+            padding: 125px 10px;
+            text-align: center;
+           
+        }
+
+        .header-container h1 {
+            font-size: 5rem;
+            font-weight: bold;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .header-container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .header-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .header-btn {
+            background-color: #6b2b2b;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+
+        }
+
+        .header-btn:hover {
+            background-color: #3d0e0efd;
+            color: #fff;
+        }
+
+        /* ===== Estilos del Carrusel ===== */
+        .carousel-inner .carousel-item img {
+            max-height: px;
+            object-fit: cover;
+            margin: auto;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-item img:hover {
+            transform: scale(1.2);
+        }
+
+        /* ===== Estilos de la Galería ===== */
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.09);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        /* ===== Estilos del Carrusel ===== */
+.carousel-inner .carousel-item img {
+    max-height: 700px;
+    object-fit: cover;
+    margin: auto;
+    transition: transform 1s ease-in-out;
+}
+/* ===== Estilos para el Pie de Página ===== */
+/* Footer centrado con fondo negro semitransparente */
+footer {
+    background-color: rgb(255, 255, 255); /* Fondo semitransparente negro */
+    color: #000000; /* Texto claro */
+    padding: 15px 10px; /* Espaciado interno */
+    text-align: center; /* Centrar contenido */
+
+}
+
+footer div {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: flex; /* Usar Flexbox */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten */
+    justify-content: space-between; /* Separar contenido */
+    gap: 15px; /* Espaciado entre bloques */
+    min-height: 0px; /* Define una altura mínima */
+}
+
+/* Estilo de las secciones del footer */
+footer div h4 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+footer ul {
+    list-style: none; /* Quitar viñetas */
+    padding: 0; /* Sin margen interno */
+    text-align: center; /* Centrar texto */
+}
+
+footer ul li a {
+    color: #9e1010; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #a71f1f; /* Color del enlace al pasar el mouse */
+}
+
+/* Botón más pequeño y centrado */
+footer .contact-button {
+    display: inline-block;
+    background-color: #691616; /* Color del botón */
+    color: #000000;
+    border: none;
+    padding: 20px 15px; /* Tamaño más compacto */
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.9s;
+}
+
+footer .contact-button:hover {
+    background-color: #ac1f1f; /* Cambio de color al hover */
+}
+
+.form-container {
+    padding: 50px; /* Aumenta el relleno interno */
+    background-image: url('img/tarea.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajuste para cubrir todo el contenedor */
+    background-position: center; /* Centrado */
+    background-color: rgba(224, 220, 220, 0.7); /* Fondo semitransparente */
+    border-radius: 10px; /* Bordes redondeados */
+    color: #fffcfc; /* Texto blanco */
+    max-width: 900px; /* Aumenta el ancho máximo */
+    min-height: 500px; /* Aumenta la altura mínima */
+    margin: 40px auto; /* Centrado horizontal */
+    text-align: center; /* Centrar texto */
+}
+
+.form-container button {
+    background-color: #4d0e0e; /* Fondo rojo vino */
+    color: #fff; /* Texto blanco */
+    font-size: 1rem; /* Tamaño del texto del botón */
+    padding: 10px 20px; /* Tamaño del botón */
+    border: none; /* Sin bordes */
+    border-radius: 2px; /* Bordes redondeados */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    transition: background-color 0.5s, transform 0.2s;
+    
+}
+.comprar-btn {
+    background-color: #4d0e0e; /* Fondo rojo vino */
+    color: #fff; /* Texto blanco */
+    font-size: 1.rem; /* Tamaño del texto del botón */
+    padding: 10px 30px; /* Tamaño del botón */
+    border: none; /* Sin bordes */
+    border-radius: 1.5px; /* Bordes redondeados */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    transition: background-color 0.5s, transform 0.2s;
+    text-align: center; /* Centrar texto */
+    
+}
+/* Contenedor del botón */
+.button-container {
+    display: flex; /* Usamos Flexbox */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente (si es necesario) */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    margin: 20px 0; /* Agrega algo de espacio alrededor */
+}
+
+
+
+
+
+
+    </style>
+</head>
+
+<body style="background-color: #000000; color: #ffffff; font-family: Arial, sans-serif;">
+    <!-- ===== Barra de Navegación ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Jean's</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-danger nav-link active" href="#carouselExample">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-danger nav-link" href="#pantalones">Pantalones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-danger nav-link" href="#formulario">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+
+    <!-- ===== Encabezado Dinámico ===== -->
+    <div class="header-container">
+        <h1>Bienvenidos a Jean's</h1>
+        <p>Encuentra los mejores jeans para cualquier ocasión.</p>
+        <img src="img/jeans.jpg" alt="Imagen del header central">
+        <div class="mt-4">
+            <a href="#pantalones" class="header-btn">Productos Destacados</a>
+        </div>
+    </div>
+
+    <!-- ===== Carrusel de Imágenes ===== -->
+    <div id="carouselExample" class="carousel slide mt-4">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/uno.jpg" class="d-block w-100" alt="Jean 1">
+            </div>
+            <div class="carousel-item">
+                <img src="img/dos.jpg" class="d-block w-100" alt="Jean 2">
+            </div>
+            <div class="carousel-item">
+                <img src="img/tres.jpg" class="d-block w-100" alt="Jean 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <!-- ===== Sección de Productos: Pantalones ===== -->
+    <div id="pantalones" class="grid-container">
+        <!-- Producto 1 -->
+        <div class="grid-item">
+            <img src="img/panuno.jpg" alt="Jean Acampanado">
+            <h5>Jean Acampanado</h5>
+            <p>60 Soles</p>
+        </div>
+        <!-- Producto 2 -->
+        <div class="grid-item">
+            <img src="img/pandos.jpg" alt="Jean Recto">
+            <h5>Jean Recto</h5>
+            <p>50 Soles</p>
+        </div>
+        <!-- Producto 3 -->
+        <div class="grid-item">
+            <img src="img/pantres.jpg" alt="Jean Negro">
+            <h5>Jean Negro</h5>
+            <p>80 Soles</p>
+        </div>
+        <!-- Producto 4 -->
+        <div class="grid-item">
+            <img src="img/pancuatro.jpg" alt="Jean Negro">
+            <h5>Jean azul plegado</h5>
+            <p>55 Soles</p>
+        </div>
+        <!-- Producto 5 -->
+        <div class="grid-item">
+            <img src="img/pancinco.jpg" alt="Jean Negro">
+            <h5>Jean Negro</h5>
+            <p>90 Soles</p>
+        </div>
+        <!-- Producto 6 -->
+        <div class="grid-item">
+            <img src="img/panseis.jpg" alt="Jean Negro">
+            <h5>Palazo azul</h5>
+            <p>79 Soles</p>
+        </div>
+        <!-- Producto 7 -->
+        <div class="grid-item">
+            <img src="img/pansiete.jpg" alt="Jean Negro">
+            <h5>Recto gris</h5>
+            <p>85 Soles</p>
+        </div>
+        <!-- Producto 8 -->
+        <div class="grid-item">
+            <img src="img/panocho.jpg" alt="Jean Negro">
+            <h5>Atrigado</h5>
+            <p>65 Soles</p>
+        </div>
+        <!-- Producto 9 -->
+        <div class="grid-item">
+            <img src="img/pannueve.jpg" alt="Jean Negro">
+            <h5>Pitillo azul</h5>
+            <p>70 Soles</p>
+        </div>
+    </div>
+     <!-- ===== Botón Comprar ===== -->
+     <div class="button-container">
+        <button class="comprar-btn">Comprar</button>
+    </div>
+    
+
+    <!-- ===== Formulario de Contacto ===== -->
+    <div id="formulario" class="form-container" style="background-image: url('img/tarea.jpg'); background-size: cover; background-position: center;">
+        <form>
+            <h3>Registrarse</h3>
+            
+            <div class="mb-3">
+                <label for="exampleTextarea" class="form-label">Nombres</label>
+                <textarea class="form-control" id="exampleTextarea" rows="1" placeholder="Escribe tus Nombres"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleTextarea" class="form-label">Apellidos</label>
+                <textarea class="form-control" id="exampleTextarea" rows="1" placeholder="Escribe sus Apellidos"></textarea>
+
+            <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
+             </div>
+
+            </div><div class="mb-3">
+                <label for="exampleTextarea" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="Escribe tu mensaje"></textarea>
+            </div>
+            <button type="submit">Registrarme</button>
+        </form>
+    </div>
+    
+    <!-- ===== Pie de Página ===== -->
+    <footer>
+        <div>
+            <div>
+                <h4>¿Necesitas ayuda?</h4>
+                <ul>
+                    <li><a href="#">Guía de tallas</a></li>
+                    <li><a href="#">Políticas de cambios y garantías</a></li>
+                    <li><a href="#">Tratamiento de datos</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Términos legales</h4>
+                <ul>
+                    <li><a href="#">Promociones</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Nuestra marca</h4>
+                <ul>
+                    <li><a href="#">AEO</a></li>
+                    <li><a href="#">Mapa del sitio</a></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+            <div>
+                <button class="contact-button">Contáctenos</button>
+            </div>
+            <div>
+                <h4>¡Síguenos en nuestras redes sociales!</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>        
